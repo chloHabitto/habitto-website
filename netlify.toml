@@ -5,12 +5,9 @@
   publish = "."
   command = "echo 'No build step needed - static site'"
 
-# Redirect all routes to index.html (for SPA routing)
-# Static files like privacy.html are served directly by Netlify before redirects apply
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Removed catch-all redirect - it was interfering with privacy.html
+# If you need SPA routing in the future, use a more specific pattern
+# that excludes existing HTML files
 
 [build.environment]
   NODE_VERSION = "18"
