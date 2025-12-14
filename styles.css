@@ -111,12 +111,12 @@ body {
     color: var(--primary);
 }
 
-.nav-links .btn-primary {
-    color: white;
+.nav-links a.btn-primary {
+    color: white !important;
 }
 
-.nav-links .btn-primary:hover {
-    color: white;
+.nav-links a.btn-primary:hover {
+    color: white !important;
 }
 
 .mobile-menu-toggle {
