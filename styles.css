@@ -269,15 +269,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    transform: none !important;
 }
 
 .phone-image {
-    max-width: 350px;
+    max-width: 280px;
     width: 100%;
     height: auto;
     display: block;
     box-shadow: var(--shadow-xl);
     border-radius: var(--radius-xl);
+    transform: none !important;
 }
 
 .app-preview {
