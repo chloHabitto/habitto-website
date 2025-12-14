@@ -111,6 +111,14 @@ body {
     color: var(--primary);
 }
 
+.nav-links .btn-primary {
+    color: white;
+}
+
+.nav-links .btn-primary:hover {
+    color: white;
+}
+
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
