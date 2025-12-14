@@ -278,7 +278,7 @@ body {
     height: auto;
     display: block;
     box-shadow: var(--shadow-xl);
-    border-radius: 60px;
+    border-radius: 80px;
     transform: none !important;
 }
 
