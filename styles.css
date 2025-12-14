@@ -91,6 +91,13 @@ body {
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.logo:focus {
+    outline: none;
+    border: none;
 }
 
 .logo-text {
@@ -542,6 +549,13 @@ body {
 
 .footer-brand .logo {
     text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+.footer-brand .logo:focus {
+    outline: none;
+    border: none;
 }
 
 .footer-brand .logo-text {
