@@ -87,11 +87,22 @@ body {
     align-items: center;
 }
 
+.logo {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
     letter-spacing: -0.02em;
+    transition: opacity 0.2s;
+}
+
+.logo:hover .logo-text {
+    opacity: 0.8;
 }
 
 .nav-links {
@@ -529,9 +540,17 @@ body {
     margin-bottom: var(--spacing-xl);
 }
 
+.footer-brand .logo {
+    text-decoration: none;
+}
+
 .footer-brand .logo-text {
     color: white;
     margin-bottom: var(--spacing-sm);
+}
+
+.footer-brand .logo:hover .logo-text {
+    opacity: 0.8;
 }
 
 .footer-description {
