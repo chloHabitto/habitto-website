@@ -33,7 +33,47 @@ This guide will help you connect your Squarespace domain (habitto.nl) to your Ha
 
 ---
 
-### Option 2: Vercel (Also Great & Free)
+### Option 2: Cloudflare Pages (Fast & Free with Global CDN)
+
+**Step 1: Deploy to Cloudflare Pages**
+1. Go to [dash.cloudflare.com](https://dash.cloudflare.com) and sign up/login
+2. Navigate to **Pages** in the sidebar
+3. Click **Create a project** → **Upload assets**
+4. Drag and drop your entire `HabittoWebsite` folder onto Cloudflare
+5. Your site will be live at a URL like `habitto-website.pages.dev`
+
+**Step 2: Connect Your Domain**
+1. In Cloudflare Pages dashboard, go to your project
+2. Click **Custom domains** → **Set up a custom domain**
+3. Enter `habitto.nl` and `www.habitto.nl`
+4. Cloudflare will automatically configure DNS if your domain is on Cloudflare
+5. If your domain is elsewhere (like Squarespace), you'll need to add DNS records
+
+**Step 3: Update DNS in Squarespace (if domain not on Cloudflare)**
+1. Log into your Squarespace account
+2. Go to **Settings** → **Domains** → **habitto.nl**
+3. Click **DNS Settings**
+4. Add these DNS records:
+   - **CNAME Record**: `@` → `habitto-website.pages.dev` (or use Cloudflare's provided CNAME)
+   - **CNAME Record**: `www` → `habitto-website.pages.dev`
+5. Wait 24-48 hours for DNS to propagate
+
+**Step 4: Enable HTTPS**
+- Cloudflare automatically provides free SSL certificates
+- HTTPS will be enabled automatically once DNS propagates
+- Cloudflare's CDN provides global edge caching for faster load times
+
+**Benefits of Cloudflare Pages:**
+- ✅ Free SSL certificates
+- ✅ Global CDN for fast loading worldwide
+- ✅ Unlimited bandwidth on free plan
+- ✅ Automatic deployments from Git (optional)
+- ✅ Built-in analytics
+- ✅ DDoS protection
+
+---
+
+### Option 3: Vercel (Also Great & Free)
 
 **Step 1: Deploy to Vercel**
 1. Go to [vercel.com](https://www.vercel.com) and sign up/login
@@ -52,7 +92,7 @@ This guide will help you connect your Squarespace domain (habitto.nl) to your Ha
 
 ---
 
-### Option 3: GitHub Pages (Free, but requires GitHub)
+### Option 4: GitHub Pages (Free, but requires GitHub)
 
 **Step 1: Create GitHub Repository**
 ```bash
@@ -92,6 +132,14 @@ Type    Name    Value
 A       @       75.2.60.5
 CNAME   www     your-site.netlify.app
 ```
+
+### For Cloudflare Pages:
+```
+Type    Name    Value
+CNAME   @       habitto-website.pages.dev
+CNAME   www     habitto-website.pages.dev
+```
+*Note: If your domain is on Cloudflare, DNS is configured automatically*
 
 ### For Vercel:
 ```

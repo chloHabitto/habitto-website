@@ -3,140 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Habitto - Build better habits and break bad ones. Track your progress, build streaks, and level up your life.">
+    <meta name="description" content="Habitto - Habits without pressure. Build lasting habits with a companion that understands you're human, not a robot.">
     <meta name="keywords" content="habit tracker, habit tracking app, build habits, break bad habits, streak tracker, productivity app">
     <meta name="author" content="Habitto">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://habitto.nl/">
-    <meta property="og:title" content="Habitto - Build Better Habits, One Day at a Time">
-    <meta property="og:description" content="Track your habits, build streaks, and level up your life. Whether you're building good habits or breaking bad ones, Habitto makes it simple and motivating.">
+    <meta property="og:title" content="Habitto - Habits without pressure">
+    <meta property="og:description" content="Progress that fits real life. Build lasting habits with a companion that understands you're human, not a robot.">
     <meta property="og:image" content="https://habitto.nl/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://habitto.nl/">
-    <meta property="twitter:title" content="Habitto - Build Better Habits, One Day at a Time">
-    <meta property="twitter:description" content="Track your habits, build streaks, and level up your life. Whether you're building good habits or breaking bad ones, Habitto makes it simple and motivating.">
+    <meta property="twitter:title" content="Habitto - Habits without pressure">
+    <meta property="twitter:description" content="Progress that fits real life. Build lasting habits with a companion that understands you're human, not a robot.">
     <meta property="twitter:image" content="https://habitto.nl/og-image.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://habitto.nl/">
     
-    <title>Habitto - Build Better Habits, One Day at a Time</title>
+    <title>Habitto - Habits without pressure</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/app-icon-light.png" id="favicon">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="/" class="logo">
-                    <span class="logo-text">Habitto</span>
-                </a>
-                <div class="nav-links">
-                    <a href="#features">Features</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="https://apps.apple.com/nl/app/habitto-habit-tracker/id6749501946?l=en-GB" class="btn-primary" target="_blank" rel="noopener noreferrer">Download</a>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="assets/app-icon-light.png" alt="Habitto" id="logo-icon">
+                <span class="logo-text">Habitto</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#how-it-works" class="nav-link">How it works</a>
+                <a href="#download" class="nav-link">Download</a>
             </div>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <a href="https://apps.apple.com/nl/app/habitto-habit-tracker/id6749501946?l=en-GB" class="btn-primary" target="_blank" rel="noopener noreferrer">Get the App</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
+    <section id="home" class="hero">
+        <div class="stars-container" id="stars-container"></div>
+        
+        <!-- Glow effects -->
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+
+        <div class="hero-content">
+            <div class="hero-grid">
+                <!-- Left content -->
                 <div class="hero-text">
-                    <h1 class="hero-title">
-                        Build Better Habits,<br>
-                        <span class="gradient-text">One Day at a Time</span>
-                    </h1>
-                    <p class="hero-description">
-                        Track your habits, build streaks, and level up your life. Whether you're building good habits or breaking bad ones, Habitto makes it simple and motivating.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="#download" class="btn-primary btn-large">Get Started</a>
-                        <a href="#features" class="btn-secondary btn-large">Learn More</a>
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        <span class="hero-badge-text">Now available on iOS</span>
                     </div>
+
+                    <h1 class="hero-title">
+                        <span>Habits without</span><br>
+                        <span class="text-gradient">pressure</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Progress that fits real life. Build lasting habits with a companion that understands 
+                        you're human, not a robot.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="https://apps.apple.com/nl/app/habitto-habit-tracker/id6749501946?l=en-GB" target="_blank" rel="noopener noreferrer" class="app-store-badge-link">
+                            <img src="assets/app-store-badge-black.svg" alt="Download on the App Store" class="app-store-badge" id="app-store-badge-hero">
+                        </a>
+                    </div>
+
                     <div class="hero-stats">
-                        <div class="stat">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Habits Tracked</div>
+                        <div class="hero-avatars">
+                            <div class="hero-avatar">😊</div>
+                            <div class="hero-avatar">🌟</div>
+                            <div class="hero-avatar">💪</div>
+                            <div class="hero-avatar">🎯</div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">🔥</div>
-                            <div class="stat-label">Streaks Built</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">⭐</div>
-                            <div class="stat-label">Levels Unlocked</div>
+                        <div class="hero-stat-text">
+                            <p class="hero-stat-title">One habit at a time</p>
+                            <p class="hero-stat-subtitle">Building better habits</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Right content - Mascot -->
                 <div class="hero-visual">
-                    <img src="Mockup-Home-English.png" alt="Habitto app screenshot" class="phone-image">
+                    <div class="hero-mascot-container">
+                        <div class="hero-mascot-glow"></div>
+                        <img src="assets/habitto-mascot.png" alt="Habitto mascot" class="hero-mascot">
+                        
+                        <!-- Floating elements -->
+                        <div class="hero-badge-float hero-badge-float-1">
+                            <span class="hero-badge-float-emoji">🔥</span>
+                            <span class="hero-badge-float-text">15 days</span>
+                        </div>
+
+                        <div class="hero-badge-float hero-badge-float-2">
+                            <span class="hero-badge-float-text-green">+1 day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom gradient fade -->
+        <div class="hero-fade"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="features-container">
+            <div class="features-header">
+                <h2 class="features-title">
+                    Features that get <span class="text-gradient">you</span>
+                </h2>
+                <p class="features-description">
+                    Built for humans, not robots. Every feature is designed to support your journey, 
+                    not stress you out.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">✨</span>
+                    </div>
+                    <h3 class="feature-title">Habits without pressure</h3>
+                    <p class="feature-description">Progress that fits real life. Discover what actually works for you.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">📊</span>
+                    </div>
+                    <h3 class="feature-title">Learn your patterns</h3>
+                    <p class="feature-description">Understand when and how you show up. See your habits from a new perspective.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">😊</span>
+                    </div>
+                    <h3 class="feature-title">Track Difficulty with fun</h3>
+                    <p class="feature-description">Not just completion — track how hard it felt. Celebrate the tough days too.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">📅</span>
+                    </div>
+                    <h3 class="feature-title">See your days clearly</h3>
+                    <p class="feature-description">Know when and how you showed up. A beautiful view of your journey.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">🏝️</span>
+                    </div>
+                    <h3 class="feature-title">Vacation Mode</h3>
+                    <p class="feature-description">Take a break, not a step back. Your streak stays protected while you rest.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">⏭️</span>
+                    </div>
+                    <h3 class="feature-title">Skip, don't quit</h3>
+                    <p class="feature-description">Your streak stays protected. One missed day doesn't erase your progress.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">🔥</span>
+                    </div>
+                    <h3 class="feature-title">One small action is enough</h3>
+                    <p class="feature-description">One small action keeps your streak alive. Consistency over perfection.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">🏆</span>
+                    </div>
+                    <h3 class="feature-title">Streaks that support you</h3>
+                    <p class="feature-description">Not punish you. Celebrate progress without the pressure of perfection.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">📱</span>
+                    </div>
+                    <h3 class="feature-title">Habit Widgets</h3>
+                    <p class="feature-description">Stay connected with Habitto right from your home screen.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="feature-icon-emoji">🌙</span>
+                    </div>
+                    <h3 class="feature-title">Dark Mode</h3>
+                    <p class="feature-description">A softer look that's easy on your eyes. Perfect for evening check-ins.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Everything You Need to Build Better Habits</h2>
-                <p class="section-description">Powerful features designed to keep you motivated and on track</p>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="pricing-container">
+            <div class="pricing-header">
+                <div class="pricing-crown">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                    </svg>
+                </div>
+                <h2 class="pricing-title">
+                    Unlock your full Habitto<br>
+                    experience with <span class="text-gradient">Premium</span>
+                </h2>
+                <p class="pricing-description">
+                    Choose the plan that works best for you
+                </p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📅</div>
-                    <h3 class="feature-title">Flexible Scheduling</h3>
-                    <p class="feature-description">Track habits daily, weekly, monthly, or on custom patterns. Set your own schedule that fits your life.</p>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="pricing-card-name">Monthly</h3>
+                    <div class="pricing-card-price">
+                        <span class="pricing-card-price-amount">$1.99</span>
+                        <span class="pricing-card-price-period">/month</span>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔥</div>
-                    <h3 class="feature-title">Streak Tracking</h3>
-                    <p class="feature-description">Build and maintain streaks to stay motivated. Watch your progress grow day by day.</p>
+
+                <div class="pricing-card">
+                    <h3 class="pricing-card-name">Annual</h3>
+                    <div class="pricing-card-price">
+                        <span class="pricing-card-price-amount">$8.99</span>
+                        <span class="pricing-card-price-period">/year</span>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⭐</div>
-                    <h3 class="feature-title">XP & Leveling</h3>
-                    <p class="feature-description">Earn experience points and level up as you complete habits. Gamification that keeps you engaged.</p>
+
+                <div class="pricing-card popular">
+                    <div class="pricing-badge">Best Value</div>
+                    <h3 class="pricing-card-name">Lifetime</h3>
+                    <div class="pricing-card-price">
+                        <span class="pricing-card-price-amount">$11.99</span>
+                        <span class="pricing-card-price-period">one-time</span>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">Dual Habit Types</h3>
-                    <p class="feature-description">Build good habits or break bad ones. Track progress toward goals or reductions in unwanted behaviors.</p>
+            </div>
+
+            <!-- Benefits Comparison -->
+            <div class="pricing-comparison">
+                <!-- Header -->
+                <div class="pricing-comparison-header">
+                    <div class="pricing-comparison-header-title">Benefits</div>
+                    <div class="pricing-comparison-header-title" style="text-align: center; color: hsl(var(--muted-foreground));">Free</div>
+                    <div class="pricing-comparison-header-title" style="text-align: center;">Premium</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏖️</div>
-                    <h3 class="feature-title">Vacation Mode</h3>
-                    <p class="feature-description">Take breaks without losing progress. Your streaks stay intact when you need time off.</p>
+
+                <!-- Rows -->
+                <div class="pricing-comparison-row">
+                    <div class="pricing-comparison-label">Unlimited Habits</div>
+                    <div class="pricing-comparison-cell">
+                        <span class="pricing-text">5 max</span>
+                    </div>
+                    <div class="pricing-comparison-cell">
+                        <div class="pricing-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔔</div>
-                    <h3 class="feature-title">Smart Notifications</h3>
-                    <p class="feature-description">Get reminders when you need them. Customizable notifications that work around your schedule.</p>
+
+                <div class="pricing-comparison-row">
+                    <div class="pricing-comparison-label">Progress Insights</div>
+                    <div class="pricing-comparison-cell">
+                        <div class="pricing-cross">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pricing-comparison-cell">
+                        <div class="pricing-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Privacy First</h3>
-                    <p class="feature-description">Your data stays on your device. Local-first approach with optional cloud sync when you're ready.</p>
+
+                <div class="pricing-comparison-row">
+                    <div class="pricing-comparison-label">Vacation Mode</div>
+                    <div class="pricing-comparison-cell">
+                        <div class="pricing-cross">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pricing-comparison-cell">
+                        <div class="pricing-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Progress Insights</h3>
-                    <p class="feature-description">Visualize your progress with beautiful charts and statistics. See how far you've come.</p>
+
+                <div class="pricing-comparison-row">
+                    <div class="pricing-comparison-label">All Future Features</div>
+                    <div class="pricing-comparison-cell">
+                        <div class="pricing-cross">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pricing-comparison-cell">
+                        <div class="pricing-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,84 +370,133 @@
 
     <!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How It Works</h2>
-                <p class="section-description">Get started in three simple steps</p>
+        <div class="how-it-works-container">
+            <div class="how-it-works-header">
+                <h2 class="how-it-works-title">
+                    How it <span class="text-gradient">works</span>
+                </h2>
+                <p class="how-it-works-description">
+                    Simple steps to build lasting habits. No complexity, no overwhelm.
+                </p>
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Create Your Habits</h3>
-                    <p class="step-description">Add habits you want to build or break. Set your schedule, choose your goal, and customize to fit your needs.</p>
+
+            <div class="how-it-works-grid">
+                <div class="how-it-works-step">
+                    <div class="how-it-works-step-icon">
+                        <div class="how-it-works-step-icon-box">
+                            <span class="how-it-works-step-emoji">📝</span>
+                        </div>
+                    </div>
+                    <div class="how-it-works-step-content">
+                        <div class="how-it-works-step-number">01</div>
+                        <h3 class="how-it-works-step-title">Add your habits</h3>
+                        <p class="how-it-works-step-description">Start with just one or two. Keep it simple and achievable.</p>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Track Daily Progress</h3>
-                    <p class="step-description">Mark habits as complete each day. Watch your streaks grow and earn XP as you build consistency.</p>
+
+                <div class="how-it-works-step">
+                    <div class="how-it-works-step-icon">
+                        <div class="how-it-works-step-icon-box">
+                            <span class="how-it-works-step-emoji">✅</span>
+                        </div>
+                    </div>
+                    <div class="how-it-works-step-content">
+                        <div class="how-it-works-step-number">02</div>
+                        <h3 class="how-it-works-step-title">Track your progress</h3>
+                        <p class="how-it-works-step-description">Check in daily. Log how you're feeling and how hard it was.</p>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Level Up Your Life</h3>
-                    <p class="step-description">Celebrate milestones, unlock achievements, and see your progress over time. Build the life you want, one habit at a time.</p>
+
+                <div class="how-it-works-step">
+                    <div class="how-it-works-step-icon">
+                        <div class="how-it-works-step-icon-box">
+                            <span class="how-it-works-step-emoji">🔥</span>
+                        </div>
+                    </div>
+                    <div class="how-it-works-step-content">
+                        <div class="how-it-works-step-number">03</div>
+                        <h3 class="how-it-works-step-title">Build your streak</h3>
+                        <p class="how-it-works-step-description">Watch your consistency grow. Every day counts, even the small ones.</p>
+                    </div>
+                </div>
+
+                <div class="how-it-works-step">
+                    <div class="how-it-works-step-icon">
+                        <div class="how-it-works-step-icon-box">
+                            <span class="how-it-works-step-emoji">🌱</span>
+                        </div>
+                    </div>
+                    <div class="how-it-works-step-content">
+                        <div class="how-it-works-step-number">04</div>
+                        <h3 class="how-it-works-step-title">Learn and adapt</h3>
+                        <p class="how-it-works-step-description">Discover your patterns and adjust your habits to fit your life.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="download">
-        <div class="container">
-            <div class="download-content">
-                <h2 class="download-title">Ready to Build Better Habits?</h2>
-                <p class="download-description">Download Habitto today and start your journey toward a better you.</p>
-                <div class="download-buttons">
-                    <a href="https://apps.apple.com/nl/app/habitto-habit-tracker/id6749501946?l=en-GB" class="download-btn app-store" aria-label="Download on the App Store" target="_blank" rel="noopener noreferrer">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                        </svg>
-                        <div>
-                            <div class="download-btn-label">Download on the</div>
-                            <div class="download-btn-name">App Store</div>
-                        </div>
-                    </a>
-                </div>
+    <!-- CTA Section -->
+    <section id="download" class="cta">
+        <div class="cta-stars" id="cta-stars"></div>
+        
+        <!-- Glow effect -->
+        <div class="cta-glow"></div>
+
+        <div class="cta-content">
+            <img src="assets/app-icon-light.png" alt="Habitto app icon" class="cta-icon" id="cta-icon">
+
+            <h2 class="cta-title">
+                Start your journey<br>
+                <span class="text-gradient">today</span>
+            </h2>
+
+            <p class="cta-description">
+                Join thousands of people who are building better habits with Habitto. 
+                Your future self will thank you.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/nl/app/habitto-habit-tracker/id6749501946?l=en-GB" target="_blank" rel="noopener noreferrer" class="app-store-badge-link">
+                    <img src="assets/app-store-badge-black.svg" alt="Download on the App Store" class="app-store-badge" id="app-store-badge-cta">
+                </a>
             </div>
+
+            <p class="cta-note">
+                Free to start • No credit card required
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <span class="logo-text">Habitto</span>
-                    </a>
-                    <p class="footer-description">Build better habits, one day at a time.</p>
+                    <img src="assets/app-icon-light.png" alt="Habitto" id="footer-icon">
+                    <span class="footer-brand-text">Habitto</span>
                 </div>
+
                 <div class="footer-links">
-                    <div class="footer-column">
-                        <h4 class="footer-title">Product</h4>
-                        <a href="#features">Features</a>
-                        <a href="#how-it-works">How It Works</a>
-                        <a href="#download">Download</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4 class="footer-title">Support</h4>
-                        <a href="#">Help Center</a>
-                        <a href="#">Contact</a>
-                        <a href="privacy.html">Privacy Policy</a>
-                    </div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+                    <a href="#">Contact</a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Habitto. All rights reserved.</p>
+
+                <p class="footer-copyright">
+                    © 2025 Habitto. Made with 💙
+                </p>
             </div>
         </div>
     </footer>
 
+    <!-- Scroll FAB -->
+    <button class="scroll-fab" id="scroll-fab" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html>
-

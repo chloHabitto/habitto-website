@@ -6,80 +6,78 @@
     <meta name="description" content="Habitto Privacy Policy - Learn how we collect, use, and protect your personal information.">
     <title>Privacy Policy - Habitto</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/app-icon-light.png" id="favicon">
     <style>
         .privacy-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: calc(80px + var(--spacing-xl)) var(--spacing-lg) var(--spacing-2xl);
+            padding: calc(80px + 3rem) 1.5rem 4rem;
         }
         .privacy-header {
-            margin-bottom: var(--spacing-2xl);
+            margin-bottom: 3rem;
         }
         .privacy-title {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-md);
+            color: hsl(var(--foreground));
+            margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
         .privacy-intro {
             font-size: 1.125rem;
-            color: var(--text-tertiary);
+            color: hsl(var(--muted-foreground));
             line-height: 1.7;
         }
         .privacy-section {
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: 2.5rem;
         }
         .privacy-section-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-md);
-            padding-bottom: var(--spacing-sm);
-            border-bottom: 2px solid var(--surface-dim);
+            color: hsl(var(--foreground));
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid hsl(var(--border));
         }
         .privacy-content {
-            color: var(--text-tertiary);
+            color: hsl(var(--muted-foreground));
             line-height: 1.8;
             font-size: 1rem;
         }
         .privacy-content p {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 1rem;
         }
         .privacy-content strong {
-            color: var(--text-secondary);
+            color: hsl(var(--foreground));
             font-weight: 600;
         }
         .privacy-content ul {
-            margin-left: var(--spacing-lg);
-            margin-bottom: var(--spacing-md);
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
         }
         .privacy-content li {
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 0.5rem;
         }
         .privacy-footer {
-            margin-top: var(--spacing-2xl);
-            padding-top: var(--spacing-lg);
-            border-top: 1px solid var(--surface-dim);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid hsl(var(--border));
             text-align: center;
-            color: var(--text-tertiary);
+            color: hsl(var(--muted-foreground));
             font-size: 0.9rem;
         }
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--primary);
+            gap: 0.5rem;
+            color: hsl(var(--primary));
             text-decoration: none;
             font-weight: 600;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: 2rem;
             transition: color 0.2s;
         }
         .back-link:hover {
-            color: var(--primary-focus);
+            color: hsl(var(--accent));
         }
         @media (max-width: 768px) {
             .privacy-title {
@@ -93,32 +91,52 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <a href="index.html" style="text-decoration: none;">
-                        <span class="logo-text">Habitto</span>
-                    </a>
-                </div>
-                <div class="nav-links">
-                    <a href="index.html#features">Features</a>
-                    <a href="index.html#how-it-works">How It Works</a>
-                    <a href="index.html#download" class="btn-primary">Download</a>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="assets/app-icon-light.png" alt="Habitto" id="logo-icon">
+                <span class="logo-text">Habitto</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#download" class="btn-primary">Download</a>
+            </div>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
                 </button>
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Privacy Policy Content -->
     <div class="privacy-container">
         <a href="index.html" class="back-link">
-            ← Back to Home
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back to Home
         </a>
 
         <div class="privacy-header">
@@ -352,39 +370,28 @@
 
         <div class="privacy-footer">
             <p><strong>Last Updated:</strong> December 2024</p>
-            <p>For privacy questions, contact us at <a href="mailto:chloe@habitto.nl" style="color: var(--primary); text-decoration: none;">chloe@habitto.nl</a></p>
+            <p>For privacy questions, contact us at <a href="mailto:chloe@habitto.nl" style="color: hsl(var(--primary)); text-decoration: none;">chloe@habitto.nl</a></p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <a href="index.html" style="text-decoration: none;">
-                            <span class="logo-text">Habitto</span>
-                        </a>
-                    </div>
-                    <p class="footer-description">Build better habits, one day at a time.</p>
+                    <img src="assets/app-icon-light.png" alt="Habitto" id="footer-icon">
+                    <span class="footer-brand-text">Habitto</span>
                 </div>
+
                 <div class="footer-links">
-                    <div class="footer-column">
-                        <h4 class="footer-title">Product</h4>
-                        <a href="index.html#features">Features</a>
-                        <a href="index.html#how-it-works">How It Works</a>
-                        <a href="index.html#download">Download</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4 class="footer-title">Support</h4>
-                        <a href="#">Help Center</a>
-                        <a href="#">Contact</a>
-                        <a href="privacy.html">Privacy Policy</a>
-                    </div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+                    <a href="#">Contact</a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Habitto. All rights reserved.</p>
+
+                <p class="footer-copyright">
+                    © 2025 Habitto. Made with 💙
+                </p>
             </div>
         </div>
     </footer>
@@ -392,15 +399,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
