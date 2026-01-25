@@ -320,6 +320,95 @@ const optimizedScrollHandler = debounce(() => {
 
 window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
 
+// Contact Form Modal
+(function() {
+    const contactLink = document.getElementById('contact-link');
+    const contactModal = document.getElementById('contact-modal');
+    const contactModalOverlay = document.getElementById('contact-modal-overlay');
+    const contactModalClose = document.getElementById('contact-modal-close');
+    const contactForm = document.getElementById('contact-form');
+
+    function openContactModal() {
+        if (contactModal) {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+    }
+
+    function closeContactModal() {
+        if (contactModal) {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    }
+
+    // Open modal when Contact link is clicked
+    if (contactLink) {
+        contactLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openContactModal();
+        });
+    }
+
+    // Also handle footer contact link
+    const contactLinkFooter = document.getElementById('contact-link-footer');
+    if (contactLinkFooter) {
+        contactLinkFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            openContactModal();
+        });
+    }
+
+    // Close modal when overlay is clicked
+    if (contactModalOverlay) {
+        contactModalOverlay.addEventListener('click', closeContactModal);
+    }
+
+    // Close modal when close button is clicked
+    if (contactModalClose) {
+        contactModalClose.addEventListener('click', closeContactModal);
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && contactModal?.classList.contains('active')) {
+            closeContactModal();
+        }
+    });
+
+    // Handle form submission
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+
+            // Create mailto link (you can replace this with your own form handling)
+            const mailtoLink = `mailto:chloe@habitto.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Optional: Show success message
+            const submitButton = contactForm.querySelector('.contact-form-submit');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Message sent!';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                closeContactModal();
+                contactForm.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        });
+    }
+})();
+
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure theme is applied immediately
