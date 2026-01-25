@@ -1152,9 +1152,18 @@ body {
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
   font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+}
+
+@media (max-width: 640px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }
 
 .footer-links a {
@@ -1165,6 +1174,63 @@ body {
 
 .footer-links a:hover {
   color: hsl(var(--foreground));
+}
+
+.footer-email {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: hsl(var(--secondary) / 0.3);
+  transition: background 0.2s;
+}
+
+.footer-email:hover {
+  background: hsl(var(--secondary) / 0.5);
+}
+
+.footer-email-icon {
+  color: hsl(var(--muted-foreground));
+  flex-shrink: 0;
+}
+
+.footer-email-label {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.footer-email-text {
+  color: hsl(var(--foreground));
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.footer-email-copy {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  color: hsl(var(--muted-foreground));
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-email-copy:hover {
+  background: hsl(var(--secondary));
+  color: hsl(var(--foreground));
+}
+
+.footer-email-copy:active {
+  transform: scale(0.95);
+}
+
+.footer-email-copy.copied {
+  color: hsl(var(--habitto-green));
 }
 
 .footer-copyright {

@@ -13,8 +13,8 @@
     const sunIcon = themeToggle?.querySelector('.sun-icon');
     const moonIcon = themeToggle?.querySelector('.moon-icon');
 
-    // Get saved theme or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Get saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = savedTheme === 'auto' ? (prefersDark ? 'dark' : 'light') : savedTheme;
 
@@ -320,91 +320,59 @@ const optimizedScrollHandler = debounce(() => {
 
 window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
 
-// Contact Form Modal
+// Copy Email Functionality
 (function() {
-    const contactLink = document.getElementById('contact-link');
-    const contactModal = document.getElementById('contact-modal');
-    const contactModalOverlay = document.getElementById('contact-modal-overlay');
-    const contactModalClose = document.getElementById('contact-modal-close');
-    const contactForm = document.getElementById('contact-form');
+    const emailCopyButton = document.getElementById('footer-email-copy');
+    const emailAddress = 'chloe@habitto.nl';
 
-    function openContactModal() {
-        if (contactModal) {
-            contactModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-    }
-
-    function closeContactModal() {
-        if (contactModal) {
-            contactModal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-    }
-
-    // Open modal when Contact link is clicked
-    if (contactLink) {
-        contactLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            openContactModal();
-        });
-    }
-
-    // Also handle footer contact link
-    const contactLinkFooter = document.getElementById('contact-link-footer');
-    if (contactLinkFooter) {
-        contactLinkFooter.addEventListener('click', (e) => {
-            e.preventDefault();
-            openContactModal();
-        });
-    }
-
-    // Close modal when overlay is clicked
-    if (contactModalOverlay) {
-        contactModalOverlay.addEventListener('click', closeContactModal);
-    }
-
-    // Close modal when close button is clicked
-    if (contactModalClose) {
-        contactModalClose.addEventListener('click', closeContactModal);
-    }
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && contactModal?.classList.contains('active')) {
-            closeContactModal();
-        }
-    });
-
-    // Handle form submission
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-
-            // Create mailto link (you can replace this with your own form handling)
-            const mailtoLink = `mailto:chloe@habitto.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Optional: Show success message
-            const submitButton = contactForm.querySelector('.contact-form-submit');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Message sent!';
-            submitButton.disabled = true;
-            
-            setTimeout(() => {
-                closeContactModal();
-                contactForm.reset();
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 2000);
+    if (emailCopyButton) {
+        emailCopyButton.addEventListener('click', async () => {
+            try {
+                // Use the Clipboard API
+                await navigator.clipboard.writeText(emailAddress);
+                
+                // Show feedback
+                emailCopyButton.classList.add('copied');
+                const originalTitle = emailCopyButton.getAttribute('title');
+                emailCopyButton.setAttribute('title', 'Copied!');
+                
+                // Change icon to checkmark temporarily
+                const svg = emailCopyButton.querySelector('svg');
+                if (svg) {
+                    const originalHTML = svg.outerHTML;
+                    svg.outerHTML = `
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    `;
+                    
+                    setTimeout(() => {
+                        emailCopyButton.classList.remove('copied');
+                        emailCopyButton.setAttribute('title', originalTitle || 'Copy email address');
+                        emailCopyButton.innerHTML = originalHTML;
+                    }, 2000);
+                }
+            } catch (err) {
+                // Fallback for browsers that don't support Clipboard API
+                const textArea = document.createElement('textarea');
+                textArea.value = emailAddress;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    emailCopyButton.classList.add('copied');
+                    setTimeout(() => {
+                        emailCopyButton.classList.remove('copied');
+                    }, 2000);
+                } catch (fallbackErr) {
+                    console.error('Failed to copy email:', fallbackErr);
+                }
+                
+                document.body.removeChild(textArea);
+            }
         });
     }
 })();
